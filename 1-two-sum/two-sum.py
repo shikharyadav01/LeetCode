@@ -1,9 +1,12 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
-        return []  # Return an empty list if no solution is found
-     
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        hash_map = {}
+        for i in range(0,n):
+            remaning = target - nums[i]
+            if remaning in hash_map:
+                return [hash_map[remaning],i]
+            else:
+                hash_map[nums[i]] = i 
+
         
